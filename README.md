@@ -1,2 +1,2 @@
 # zySandbox
-Interactive sandbox [dev]
+Interactive sandbox thingie.
