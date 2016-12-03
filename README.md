@@ -1,2 +1,2 @@
-# zySandbox
+# z-display
 Interactive sandbox thingie.
