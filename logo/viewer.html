@@ -1,118 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!-- ------------- -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- ------------- -->
-<title>Codelab Logo Player - zySandbox | LTCodelab</title>
-<meta name="description" content="Codelab Logo Player, play around with LTCodelab's logo!">
-<meta name="author" content="LTCodelab">
-<!-- ------------- -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!--<link href="../../zySandbox/assets/css/styles.css" rel="stylesheet" type="text/css">-->
-<link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-<!-- ------------- -->
-<meta property="og:url" content="https://2501codelab.github.io/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lane Tech Codelab">
-<meta property="og:image" content="https://2501codelab.github.io/assets/media/fb_bk.png">
-<meta property="og:description" content="Codelab Logo Player, play around with LTCodelab's logo!">
-<meta property="og:site_name" content="Codelab Logo Player - zySandbox">
-<meta property="og:locale" content="en_US">
-<!-- ------------- -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@LTCodelab" />
-<meta name="twitter:creator" content="@Zyplos" />
-<!-- ------------- -->
-<meta name="theme-color" content="#ffffff">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<!-- ------------- -->
+    <head>
+        <!-- ------------- -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- ------------- -->
+        <title>Codelab Logo Player - zySandbox | LTCodelab</title>
+        <meta name="description" content="Codelab Logo Player, play around with LTCodelab's logo!">
+        <meta name="author" content="LTCodelab">
+        <!-- ------------- -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!--<link href="../../zySandbox/assets/css/styles.css" rel="stylesheet" type="text/css">-->
+        <link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <!-- ------------- -->
+        <meta property="og:url" content="https://2501codelab.github.io/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Lane Tech Codelab">
+        <meta property="og:image" content="https://2501codelab.github.io/assets/media/fb_bk.png">
+        <meta property="og:description" content="Codelab Logo Player, play around with LTCodelab's logo!">
+        <meta property="og:site_name" content="Codelab Logo Player - zySandbox">
+        <meta property="og:locale" content="en_US">
+        <!-- ------------- -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@LTCodelab" />
+        <meta name="twitter:creator" content="@Zyplos" />
+        <!-- ------------- -->
+        <meta name="theme-color" content="#ffffff">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <!-- ------------- -->
+        <!-- Favicons -->
+        <!-- ------------- -->
+        <!--<script src="assets/js/stuff.js"></script>-->
+        <style>
+            html {
+                position: relative;
+                min-height: 100%;
+            }
 
-<!-- Favicons -->
+            body {
+                margin-bottom: 60px;
+            }
 
-<!-- ------------- -->
-<!--<script src="assets/js/stuff.js"></script>-->
-<style>
-html {
-    position: relative;
-    min-height: 100%;
-}
-body {
-    margin-bottom: 60px;
-}
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-}
+            footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 80px;
+            }
 
-@media (max-width: 768px) {
-.text-left {
-    text-align: center;
-}
-.text-right {
-    text-align: center;
-}
-}
-#main {
-    margin-top: 40px;
-}
-</style>
+            @media (max-width: 768px) {
+                .text-left {
+                    text-align: center;
+                }
+                .text-right {
+                    text-align: center;
+                }
+            }
+        </style>
+        <style>
+            .letter {
+                transition: fill 0.5s ease;
+                -webkit-transition: fill 0.5s ease;
+                -moz-transition: fill 0.5s ease;
+                -o-transition: fill 0.5s ease;
+            }
 
-<style>
-.letter {
-    transition: fill 0.5s ease;
-    -webkit-transition: fill 0.5s ease;
-    -moz-transition: fill 0.5s ease;
-    -o-transition: fill 0.5s ease;
-}
-#c {
-    fill: #ffde00;
-}
-#o {
-    fill: #ffde00;
-}
-#d {
-    fill: #ffde00;
-}
-#e {
-    fill: #ffde00;
-}
-#l {
-    fill: #ffde00;
-}
-#a {
-    fill: #ffde00;
-}
-#b {
-    fill: #ffde00;
-}
-#brk {
-    fill: #3fa9f5;
-}
-#sc {
-    fill: #3fa9f5;
-}
-</style>
+            #c {
+                fill: #ffde00;
+            }
 
+            #o {
+                fill: #ffde00;
+            }
 
+            #d {
+                fill: #ffde00;
+            }
 
+            #e {
+                fill: #ffde00;
+            }
 
- 
-</head>
+            #l {
+                fill: #ffde00;
+            }
 
-<body id="bk">
+            #a {
+                fill: #ffde00;
+            }
 
-<div id="main" class="text-center">
+            #b {
+                fill: #ffde00;
+            }
 
+            #brk {
+                fill: #ff3e3e;
+            }
 
-    <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 10" viewBox="0 0 751.3 188" id="logomain">
+            #sc {
+                fill: #ff3e3e;
+            }
+        </style>
+    </head>
+
+    <body id="bk">
+        <div id="main" class="text-center"> <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 10" viewBox="0 0 751.3 188" id="logomain">
 <title> CodelabLogo </title>
 
 <path d="M33.5 106.3a33 33 0 0 0 9.9 24.3 33.4 33.4 0 0 0 24.3 9.9q3 5.7 8.7 17.3H67.7A48.7 48.7 0 0 1 42.4 151 49.8 49.8 0 0 1 24 133.5a46 46 0 0 1-5.7-12.9 49.1 49.1 0 0 1-2.1-14.3V93.8a35.4 35.4 0 0 0-7-9.5A21 21 0 0 0 0 78.9 29.7 29.7 0 0 0 9.1 73a45.4 45.4 0 0 0 7.2-9.5V51.7A49.8 49.8 0 0 1 23 26.2 49.9 49.9 0 0 1 40.5 7.8 46 46 0 0 1 53.3 2.1 49.2 49.2 0 0 1 67.7 0h8.7a17.4 17.4 0 0 1-1.9 3.6q0 0.2-2.7 5.9A36.9 36.9 0 0 0 70 12.9q-1.1 1.9-2.3 4.4A33.1 33.1 0 0 0 43.4 27.4a33 33 0 0 0-9.9 24.3V64.3a43.7 43.7 0 0 0-2.1 8.9q-0.6 3.8-5.7 5.7 5.3 1.5 5.9 5.1A65.5 65.5 0 0 0 33.5 93v13.3Z" id="c" class="letter"></path>
@@ -133,168 +129,117 @@ footer {
 
 <path d="M731.8 125.8h19.4l-17.1 62.2H714.8ZM750 65.5V85.5H730.6V65.5Z" id="sc" class="letter"></path>
 
-</svg>
+</svg> </div>
+        <div id="qr" class="text-center"> <img src="../assets/media/qr_logo_controller.png" class="img-responsive center-block" />
+            <h3>Scan me!</h3> </div> <br> <br> <br>
+        <footer>
+            <div class="container">
+                <div style="padding-top: 40px" class="pull-left">
+                    <p>Made by LTCodelab with <span style="font-family: monospace;color:#999;">&lt;/&gt;</span> 2017</p>
+                </div>
+                <div style="padding-top: 20px" class="pull-right"> <img src="../assets/media/zyplos_logo.svg" style="height: 45px" /> </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js">
+        </script>
+        <script src="../assets/js/core.js">
+        </script>
+        <script>
+            console.log('%c --------------------------------------', 'color: #ff3e3e;');
+            console.log('%c Hey!', 'color: #ff3e3e;');
+            console.log('%c ', 'color: #ff3e3e;');
+            console.log('%c You! Yeah you!', 'color: #ff3e3e;');
+            console.log('%c Snooping around the console!', 'color: #ff3e3e;');
+            console.log('%c That\'s okay, if anything, we encourage it! Check out our Github at: https://github.com/2501CodeLab/', 'color: #ff3e3e;');
+            console.log('%c Consider passing by one of our Codelab meetings.', 'color: #ff3e3e;');
+            console.log('%c --------------------------------------', 'color: #ff3e3e;');
+            $(document).ready(function() {
+                var winWidth = $(window).width();
+                calcWidth = winWidth - (winWidth * 0.1);
+                $("#logomain").css("width", calcWidth + "px");
+                //
+                var winHeight = $(window).height();
+                calcHeight = winHeight - (winHeight * 0.7);
+                $("#main").css("margin-top", calcHeight + "px");
+            });
+        </script>
+        <script>
+            var logoRef = firebase.database().ref('logo/');
+            logoRef.on("child_changed", function(data) {
+                var color = data.val();
+                var char = data.key;
+                if (char == "bk") {
+                    switch (color) {
+                        case "red":
+                            color = "#E13535";
+                            break;
+                        case "yellow":
+                            color = "#E3C500";
+                            break;
+                        case "blue":
+                            color = "#3C98DB";
+                            break;
+                        case "green":
+                            color = "#13BC35";
+                            break;
+                        case "purple":
+                            color = "#872298";
+                            break;
+                        case "orange":
+                            color = "#D78000";
+                            break;
+                        case "pink":
+                            color = "#E0A8BB";
+                            break;
+                        case "gray":
+                            color = "#848484";
+                            break;
+                        default:
+                            //color = "white";
+                            break;
+                    }
+                } else {
+                    switch (color) {
+                        case "red":
+                            color = "#ff3e3e";
+                            break;
+                        case "yellow":
+                            color = "#ffde00";
+                            break;
+                        case "blue":
+                            color = "#3fa9f5";
+                            break;
+                        case "green":
+                            color = "#15D63C";
+                            break;
+                        case "purple":
+                            color = "#9C27B0";
+                            break;
+                        case "orange":
+                            color = "#FF9800";
+                            break;
+                        case "pink":
+                            color = "#F8BBD0";
+                            break;
+                        case "gray":
+                            color = "#9E9E9E";
+                            break;
+                        default:
+                            //color = "#607D8B";
+                            break;
+                    }
+                }
+                if (char == "bk") {
+                    $("#" + char).css("background-color", color);
+                } else {
+                    $("#" + char).css("fill", color);
+                }
+            });
+        </script>
+    </body>
 
-
-
-
-
-
-
-
-
-</div>
-
-<div id="qr">
-
-	
-
-</div>
-
-<br>
-<br>
-
-
-
-
-
-<br>
-
-<footer>
-      <div class="container">
-          <div style="padding-top: 40px" class="pull-left">
-              <p>Made by LTCodelab with <span style="font-family: monospace;color:#999;" >&lt;/&gt;</span> 2017</p>
-  </div>
-      
-     
-      
-          <div style="padding-top: 20px" class="pull-right">
-              <img src="../assets/media/zyplos_logo.svg" style="height: 45px" />
-  </div>
-  </div>
-</footer>
-
-
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous">
-</script> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-</script> 
-
-    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js">
-</script>
-    <script src="../assets/js/core.js">
-</script>
-
-   
-    <script>
-        
-        console.log('%c --------------------------------------', 'color: #ff3e3e;');
-        console.log('%c Hey!', 'color: #ff3e3e;');
-        console.log('%c ', 'color: #ff3e3e;');
-        console.log('%c You! Yeah you!', 'color: #ff3e3e;');
-        console.log('%c Snooping around the console!', 'color: #ff3e3e;');
-        console.log('%c That\'s okay, if anything, we encourage it! Check out our Github at: https://github.com/2501CodeLab/', 'color: #ff3e3e;');
-        console.log('%c Consider passing by one of our Codelab meetings.', 'color: #ff3e3e;');
-        console.log('%c --------------------------------------', 'color: #ff3e3e;');
-        
-     
-        $(document).ready(function() {
-            var winWidth = $(window).width();
-            
-            calcWidth = winWidth - (winWidth * 0.1);
-            
-            $("#logomain").css("width", calcWidth + "px");
-        });
-        
-    </script>
-    
-    <script>
-          var logoRef = firebase.database().ref('logo/');
-        
-          logoRef.on("child_changed", function (data) {
-              
-              
-              
-      var color = data.val();
-      var char = data.key;
-              
-      
-              
-              
-              if(char == "bk"){
-          switch (color){
-          case "red":
-              color = "#E13535";
-              break;
-          case "yellow":
-              color = "#E3C500";
-              break;
-          case "blue":
-              color = "#3C98DB";
-              break;
-          case "green":
-              color = "#13BC35";
-              break;
-          case "purple":
-              color = "#872298";
-              break;
-          case "orange":
-              color = "#D78000";
-              break;
-          case "pink":
-              color = "#E0A8BB";
-              break;
-          case "gray":
-              color = "#848484";
-              break;
-          default:
-              //color = "white";
-              break;
-      }
-      } else {
-         switch (color){
-          case "red":
-              color = "#ff3e3e";
-              break;
-          case "yellow":
-              color = "#ffde00";
-              break;
-          case "blue":
-              color = "#3fa9f5";
-              break;
-          case "green":
-              color = "#15D63C";
-              break;
-          case "purple":
-              color = "#9C27B0";
-              break;
-          case "orange":
-              color = "#FF9800";
-              break;
-          case "pink":
-              color = "#F8BBD0";
-              break;
-          case "gray":
-              color = "#9E9E9E";
-              break;
-          default:
-              //color = "#607D8B";
-              break;
-      }
-      }
-
-      
-              
-              
-      
-      if(char == "bk"){
-          $("#" + char).css("background-color", color);
-      } else {
-          $("#" + char).css("fill", color);
-      }
-
-  });
-    </script>
-</body>
 </html>

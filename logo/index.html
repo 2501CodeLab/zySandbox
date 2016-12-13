@@ -1,428 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<!-- ------------- -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- ------------- -->
-<title>Codelab Logo Controller - zySandbox | LTCodelab</title>
-<meta name="description" content="Controller for the Codelab Logo Player.">
-<meta name="author" content="LTCodelab">
-<!-- ------------- -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!--<link href="../../zySandbox/assets/css/styles.css" rel="stylesheet" type="text/css">-->
-<link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-<!-- ------------- -->
-<meta property="og:url" content="https://2501codelab.github.io/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lane Tech Codelab">
-<meta property="og:image" content="https://2501codelab.github.io/assets/media/fb_bk.png">
-<meta property="og:description" content="Controller for the Codelab Logo Player.">
-<meta property="og:site_name" content="Codelab Logo Controller - zySandbox">
-<meta property="og:locale" content="en_US">
-<!-- ------------- -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@LTCodelab" />
-<meta name="twitter:creator" content="@Zyplos" />
-<!-- ------------- -->
-<meta name="theme-color" content="#ffffff">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<!-- ------------- -->
-
-<!-- Favicons -->
-
-<!-- ------------- -->
-<!--<script src="assets/js/stuff.js"></script>-->
-<style>
-html {
-    position: relative;
-    min-height: 100%;
-}
-body {
-    margin-bottom: 60px;
-}
-.navbar {
-    -webkit-box-shadow: none;
-}
-.navbar a.navbar-brand {
-    padding: 9px 15px 8px;
-}
-#navbar-image-main {
-    height: 45px !important;
-}
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
-}
-
-@media (max-width: 768px) {
-.text-left {
-    text-align: center;
-}
-.text-right {
-    text-align: center;
-}
-}
-</style>
-
-<style>
-#c {
-    fill: #ffde00;
-}
-#o {
-    fill: #ffde00;
-}
-#d {
-    fill: #ffde00;
-}
-#e {
-    fill: #ffde00;
-}
-#l {
-    fill: #ffde00;
-}
-#a {
-    fill: #ffde00;
-}
-#b {
-    fill: #ffde00;
-}
-#brk {
-    fill: #3fa9f5;
-}
-#sc {
-    fill: #3fa9f5;
-}
-</style>
-
-<style>
-.letterSelItem {
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 40px;
-    display: inline-block;
-    cursor: pointer;
-}
-.colorSelItem {
-    height: 30px;
-    width: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: #ff3e3e;
-    display: inline-block;
-    border-radius: 20%;
-    cursor: pointer;
-}
-#red {
-    background-color: #ff3e3e;
-}
-#yellow {
-    background-color: #ffde00;
-}
-#blue {
-    background-color: #3fa9f5;
-}
-#green {
-    background-color: #15D63C;
-}
-#purple {
-    background-color: #9C27B0;
-}
-#orange {
-    background-color: #FF9800;
-}
-#pink {
-    background-color: #F8BBD0;
-}
-.letterSelected {
-    transition: color 0.5s ease;
-    -webkit-transition: color 0.5s ease;
-    -moz-transition: color 0.5s ease;
-    -o-transition: color 0.5s ease;
-    color: #ff3e3e;
-}
-.colorSelected {
-    height: 50px;
-    width: 50px;
-    transition: height 0.5s ease;
-    -webkit-transition: height 0.5s ease;
-    -moz-transition: height 0.5s ease;
-    -o-transition: height 0.5s ease;
-    transition: width 0.5s ease;
-    -webkit-transition: width 0.5s ease;
-    -moz-transition: width 0.5s ease;
-    -o-transition: width 0.5s ease;
-}
-</style>
-
-
-
-
- 
-</head>
-
-<body>
-
-
-<div class="modal fade" id="resetDialog" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      
-      <div class="modal-body text-center">
-        <p><button class="btn btn-danger btn-lg" id="resetButton">RESET</button></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header"> <a class="navbar-brand" href="/"> <!-- --> <img src="../assets/media/codelab_logo.svg" id="navbar-image-main" /> <!-- -->  </a>
-           
-            <h5 class="navbar-text hidden-xs">zySandbox</h5>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-</div>
-        <div class="collapse navbar-collapse" id="mobile-menu">
-            <ul class="nav navbar-nav navbar-right">
-              
-              <li class="hidden-sm hidden-md hidden-lg text-center"> <a style="color:#bbbbbb">zySandbox</a> </li>
-               
-                <li> <a href="/"> <b>Main Site</b> </a> </li>
-                <li> <a href="/zySandbox"> Home </a> </li>
-             
-           
-                <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sandbox <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/zySandbox/logo">Codelab Logo</a></li>
-            <li><a href="#">Pong [indev]</a></li>
-            <li><a href="#">Galaga [dev]</a></li>
-            <li><a href="#">Pokemon Battle thing [dev]</a></li>
-  </ul>
-</li> 
-</ul>
-</div>
-</div>
-</nav>
-
-
-<br>
-<br>
-
-<div class="container-fluid">
-    <h2 class="text-center">Codelab Logo Controller</h2>
-</div>
-
-<br>
-<br>
-
-<div class="container-fluid text-center" id="letterSel">
-    <h3>Select a Letter</h3>
-    
-    <div class="letterSelItem letterSelected" id="c">C</div>
-    <div class="letterSelItem" id="o">O</div>
-    <div class="letterSelItem" id="d">D</div>
-    <div class="letterSelItem" id="e">E</div>
-    <br>
-    <div class="letterSelItem" id="l">L</div>
-    <div class="letterSelItem" id="a">A</div>
-    <div class="letterSelItem" id="b">B</div>
-    <div class="letterSelItem" id="brk">}</div>
-    <div class="letterSelItem" id="sc">;</div>
-    <br>
-    <div class="letterSelItem" id="bk" style="font-size: 20px">BACKGROUND</div>
-    
-    
-</div>
-    
-    <br>
-    <br>
-    
-    <div class="container-fluid text-center" id="colorSel">
-    <h3>Select a Color</h3>
-    
-    <div class="colorSelItem colorSelected" id="red"></div>
-    <div class="colorSelItem" id="yellow"></div>
-    <div class="colorSelItem" id="blue"></div>
-    <div class="colorSelItem" id="green"></div>
-    <div class="colorSelItem" id="purple"></div>
-    <div class="colorSelItem" id="orange"></div>
-    <div class="colorSelItem" id="pink"></div>
-    
-    
-</div>
-    
-  <br>
-    
-    <p class="text-center">Changes can be seen realtime on <a href="/zySandbox/logo/viewer.html">the Player!</a></p>
-
-    
-    <br>
-    <br>
-  
-
-
-    
-
-    <footer>
-        <div class="container">
-          <div style="padding-top: 40px" class="pull-left" id="reset">
-              <p>Made by LTCodelab with <span style="font-family: monospace;color:#999;" >&lt;/&gt;</span> 2017</p>
-  </div>
-      
-     
-      
-          <div style="padding-top: 20px" class="pull-right">
-              <img src="../assets/media/zyplos_logo.svg" style="height: 45px" id="zlogo" />
-  </div>
-  </div>
-</footer>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous">
-</script> 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-</script> 
-
-    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js">
-</script>
-    <script src="../assets/js/core.js">
-</script>
-
-   
-    <script>
-        
-        console.log('%c --------------------------------------', 'color: #ff3e3e;');
-        console.log('%c Hey!', 'color: #ff3e3e;');
-        console.log('%c ', 'color: #ff3e3e;');
-        console.log('%c You! Yeah you!', 'color: #ff3e3e;');
-        console.log('%c Snooping around the console!', 'color: #ff3e3e;');
-        console.log('%c That\'s okay, if anything, we encourage it! Check out our Github at: https://github.com/2501CodeLab/', 'color: #ff3e3e;');
-        console.log('%c Consider passing by one of our Codelab meetings.', 'color: #ff3e3e;');
-        console.log('%c --------------------------------------', 'color: #ff3e3e;');
-        
-     
-        
-        
-    </script>
-    
-    
-    
-    <script>
-        var selLetter = "c";
-        var selColor = "red";
-        
-        $(".letterSelItem").click(function() {
-            
-            $("#" + selLetter).removeClass("letterSelected");
-            
-            selLetter = $(this).attr("id");
-            
-            
-            
-            $(this).addClass("letterSelected");
-        });
-        
-        $(".colorSelItem").click(function() {
-                        
-            $("#" + selColor).removeClass("colorSelected");
-            
-            selColor = $(this).attr("id");
-           
-            
-            $(this).addClass("colorSelected");
-        });
-    </script>
-    
-    
-    <script>
-          var logoRef = firebase.database().ref('logo/');
-
-
-          $(".colorSelItem").click(function() {
-
-              logoRef.child(selLetter).set(selColor);
-              
-          });
-    </script>
-    
-    <script>
-        var step = 0;
-        var rstep = 0;
-        
-        $("#zlogo").click(function(){
-            
-            if(step == 10){
-                step = 0;
-                logoRef.child("c").set("#FFD600");
-            logoRef.child("o").set("#FFD600");
-            logoRef.child("d").set("#FFD600");
-            logoRef.child("e").set("#FFD600");
-            logoRef.child("l").set("#FFD600");
-            logoRef.child("a").set("#FFD600");
-            logoRef.child("b").set("#FFD600");
-            logoRef.child("brk").set("#008323");
-            logoRef.child("sc").set("#008323");
-            logoRef.child("bk").set("#016B00");
-                
-            } else {
-                step++;
+    <head>
+        <!-- ------------- -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- ------------- -->
+        <title>Codelab Logo Controller - zySandbox | LTCodelab</title>
+        <meta name="description" content="Controller for the Codelab Logo Player.">
+        <meta name="author" content="LTCodelab">
+        <!-- ------------- -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!--<link href="../../zySandbox/assets/css/styles.css" rel="stylesheet" type="text/css">-->
+        <link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <!-- ------------- -->
+        <meta property="og:url" content="https://2501codelab.github.io/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Lane Tech Codelab">
+        <meta property="og:image" content="https://2501codelab.github.io/assets/media/fb_bk.png">
+        <meta property="og:description" content="Controller for the Codelab Logo Player.">
+        <meta property="og:site_name" content="Codelab Logo Controller - zySandbox">
+        <meta property="og:locale" content="en_US">
+        <!-- ------------- -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@LTCodelab" />
+        <meta name="twitter:creator" content="@Zyplos" />
+        <!-- ------------- -->
+        <meta name="theme-color" content="#ffffff">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <!-- ------------- -->
+        <!-- Favicons -->
+        <!-- ------------- -->
+        <!--<script src="assets/js/stuff.js"></script>-->
+        <style>
+            html {
+                position: relative;
+                min-height: 100%;
             }
-            
-        });
-        
-        
-        $("#reset").click(function(){
-            
-            if(rstep == 10){
-                rstep = 0;
-                
-                $('#resetDialog').modal('show');
-            } else {
-                rstep++;
+
+            body {
+                margin-bottom: 60px;
             }
-            
-        });
-        
-        
-        $("#resetButton").click(function(){
-            
-            logoRef.child("c").set("gold");
-            logoRef.child("o").set("gold");
-            logoRef.child("d").set("gold");
-            logoRef.child("e").set("gold");
-            logoRef.child("l").set("gold");
-            logoRef.child("a").set("gold");
-            logoRef.child("b").set("gold");
-            logoRef.child("brk").set("blue");
-            logoRef.child("sc").set("blue");
-            logoRef.child("bk").set("white");
-            $('#resetDialog').modal('hide');
-            
-        });
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    </script>
-    
-   
-        
-       
-    
-</body>
+
+            .navbar {
+                -webkit-box-shadow: none;
+            }
+
+            .navbar a.navbar-brand {
+                padding: 9px 15px 8px;
+            }
+
+            #navbar-image-main {
+                height: 45px !important;
+            }
+
+            footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 80px;
+            }
+
+            @media (max-width: 768px) {
+                .text-left {
+                    text-align: center;
+                }
+                .text-right {
+                    text-align: center;
+                }
+            }
+        </style>
+        <style>
+            #c {
+                fill: #ffde00;
+            }
+
+            #o {
+                fill: #ffde00;
+            }
+
+            #d {
+                fill: #ffde00;
+            }
+
+            #e {
+                fill: #ffde00;
+            }
+
+            #l {
+                fill: #ffde00;
+            }
+
+            #a {
+                fill: #ffde00;
+            }
+
+            #b {
+                fill: #ffde00;
+            }
+
+            #brk {
+                fill: #3fa9f5;
+            }
+
+            #sc {
+                fill: #3fa9f5;
+            }
+        </style>
+        <style>
+            .letterSelItem {
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 40px;
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            .colorSelItem {
+                height: 30px;
+                width: 30px;
+                margin-left: 20px;
+                margin-right: 20px;
+                background-color: #ff3e3e;
+                display: inline-block;
+                border-radius: 20%;
+                cursor: pointer;
+            }
+
+            #red {
+                background-color: #ff3e3e;
+            }
+
+            #yellow {
+                background-color: #ffde00;
+            }
+
+            #blue {
+                background-color: #3fa9f5;
+            }
+
+            #green {
+                background-color: #15D63C;
+            }
+
+            #purple {
+                background-color: #9C27B0;
+            }
+
+            #orange {
+                background-color: #FF9800;
+            }
+
+            #pink {
+                background-color: #F8BBD0;
+            }
+
+            .letterSelected {
+                transition: color 0.5s ease;
+                -webkit-transition: color 0.5s ease;
+                -moz-transition: color 0.5s ease;
+                -o-transition: color 0.5s ease;
+                color: #ff3e3e;
+            }
+
+            .colorSelected {
+                height: 50px;
+                width: 50px;
+                transition: height 0.5s ease;
+                -webkit-transition: height 0.5s ease;
+                -moz-transition: height 0.5s ease;
+                -o-transition: height 0.5s ease;
+                transition: width 0.5s ease;
+                -webkit-transition: width 0.5s ease;
+                -moz-transition: width 0.5s ease;
+                -o-transition: width 0.5s ease;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="modal fade" id="resetDialog" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <p><button class="btn btn-danger btn-lg" id="resetButton">RESET</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <!-- --><img src="../assets/media/codelab_logo.svg" id="navbar-image-main" />
+                        <!-- -->
+                    </a>
+                    <h5 class="navbar-text hidden-xs">zySandbox</h5> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mobile-menu" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>                    </div>
+                <div class="collapse navbar-collapse" id="mobile-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden-sm hidden-md hidden-lg text-center"> <a style="color:#bbbbbb">zySandbox</a> </li>
+                        <li>
+                            <a href="/"> <b>Main Site</b> </a>
+                        </li>
+                        <li> <a href="/zySandbox"> Home </a> </li>
+                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sandbox <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/zySandbox/logo">Codelab Logo</a></li>
+                                <li><a href="#">Pong [indev]</a></li>
+                                <li><a href="#">Galaga [dev]</a></li>
+                                <li><a href="#">Pokemon Battle thing [dev]</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> <br> <br>
+        <div class="container-fluid">
+            <h2 class="text-center">Codelab Logo Controller</h2> </div> <br> <br>
+        <div class="container-fluid text-center" id="letterSel">
+            <h3>Select a Letter</h3>
+            <div class="letterSelItem letterSelected" id="c">C</div>
+            <div class="letterSelItem" id="o">O</div>
+            <div class="letterSelItem" id="d">D</div>
+            <div class="letterSelItem" id="e">E</div> <br>
+            <div class="letterSelItem" id="l">L</div>
+            <div class="letterSelItem" id="a">A</div>
+            <div class="letterSelItem" id="b">B</div>
+            <div class="letterSelItem" id="brk">}</div>
+            <div class="letterSelItem" id="sc">;</div> <br>
+            <div class="letterSelItem" id="bk" style="font-size: 20px">BACKGROUND</div>
+        </div> <br> <br>
+        <div class="container-fluid text-center" id="colorSel">
+            <h3>Select a Color</h3>
+            <div class="colorSelItem colorSelected" id="red"></div>
+            <div class="colorSelItem" id="yellow"></div>
+            <div class="colorSelItem" id="blue"></div>
+            <div class="colorSelItem" id="green"></div>
+            <div class="colorSelItem" id="purple"></div>
+            <div class="colorSelItem" id="orange"></div>
+            <div class="colorSelItem" id="pink"></div>
+        </div> <br>
+        <p class="text-center">Changes can be seen realtime on <a href="/zySandbox/logo/viewer.html">the Player!</a></p> <br> <br>
+        <footer>
+            <div class="container">
+                <div style="padding-top: 40px" class="pull-left" id="reset">
+                    <p>Made by LTCodelab with <span style="font-family: monospace;color:#999;">&lt;/&gt;</span> 2017</p>
+                </div>
+                <div style="padding-top: 20px" class="pull-right"> <img src="../assets/media/zyplos_logo.svg" style="height: 45px" id="zlogo" /> </div>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous">
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+        </script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js">
+        </script>
+        <script src="../assets/js/core.js">
+        </script>
+        <script>
+            console.log('%c --------------------------------------', 'color: #ff3e3e;');
+            console.log('%c Hey!', 'color: #ff3e3e;');
+            console.log('%c ', 'color: #ff3e3e;');
+            console.log('%c You! Yeah you!', 'color: #ff3e3e;');
+            console.log('%c Snooping around the console!', 'color: #ff3e3e;');
+            console.log('%c That\'s okay, if anything, we encourage it! Check out our Github at: https://github.com/2501CodeLab/', 'color: #ff3e3e;');
+            console.log('%c Consider passing by one of our Codelab meetings.', 'color: #ff3e3e;');
+            console.log('%c --------------------------------------', 'color: #ff3e3e;');
+        </script>
+        <script>
+            var selLetter = "c";
+            var selColor = "red";
+            $(".letterSelItem").click(function() {
+                $("#" + selLetter).removeClass("letterSelected");
+                selLetter = $(this).attr("id");
+                $(this).addClass("letterSelected");
+            });
+            $(".colorSelItem").click(function() {
+                $("#" + selColor).removeClass("colorSelected");
+                selColor = $(this).attr("id");
+                $(this).addClass("colorSelected");
+            });
+        </script>
+        <script>
+            var logoRef = firebase.database().ref('logo/');
+            $(".colorSelItem").click(function() {
+                logoRef.child(selLetter).set(selColor);
+            });
+        </script>
+        <script>
+            var step = 0;
+            var rstep = 0;
+            $("#zlogo").click(function() {
+                if (step == 10) {
+                    step = 0;
+                    logoRef.child("c").set("#FFD600");
+                    logoRef.child("o").set("#FFD600");
+                    logoRef.child("d").set("#FFD600");
+                    logoRef.child("e").set("#FFD600");
+                    logoRef.child("l").set("#FFD600");
+                    logoRef.child("a").set("#FFD600");
+                    logoRef.child("b").set("#FFD600");
+                    logoRef.child("brk").set("#008323");
+                    logoRef.child("sc").set("#008323");
+                    logoRef.child("bk").set("#016B00");
+                } else {
+                    step++;
+                }
+            });
+            $("#reset").click(function() {
+                if (rstep == 10) {
+                    rstep = 0;
+                    $('#resetDialog').modal('show');
+                } else {
+                    rstep++;
+                }
+            });
+            $("#resetButton").click(function() {
+                logoRef.child("c").set("gold");
+                logoRef.child("o").set("gold");
+                logoRef.child("d").set("gold");
+                logoRef.child("e").set("gold");
+                logoRef.child("l").set("gold");
+                logoRef.child("a").set("gold");
+                logoRef.child("b").set("gold");
+                logoRef.child("brk").set("blue");
+                logoRef.child("sc").set("blue");
+                logoRef.child("bk").set("white");
+                $('#resetDialog').modal('hide');
+            });
+        </script>
+    </body>
+
 </html>
