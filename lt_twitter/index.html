@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Viewports -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Desc. -->
+    <title>Lane Tech Live Twitter Mentions - zySandbox | LTCodeLab</title>
+    <meta name="description" content="zySandbox - an experience">
+    <meta name="author" content="LTCodeLab">
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <style>
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+
+      body {
+        margin-bottom: 60px;
+      }
+
+      .bk_img {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      #headline,
+      #content {
+        opacity: 0;
+      }
+
+      .main_header {
+        background-color: rgba(0, 0, 0, 0.75);
+        margin-bottom: 0;
+      }
+
+      .main_header h3, .main_header p {
+        color:white;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 80px;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 1000;
+      }
+
+      @media (max-width: 768px) {
+        .text-left {
+          text-align: center;
+        }
+        .text-right {
+          text-align: center;
+        }
+      }
+
+       ::-webkit-scrollbar-track {
+        background-color: #CCCCCC;
+      }
+
+       ::-webkit-scrollbar {
+        width: 10px;
+        background-color: #CCCCCC;
+      }
+
+       ::-webkit-scrollbar-thumb {
+        background-color: #ffde00;
+      }
+
+      small {
+        color: #a7a7a7;
+      }
+    </style>
+    <style>
+      .panel-heading {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        padding: 0;
+      }
+
+      .panel-heading-content {
+        padding: 36px 25px;
+        z-index: 100;
+        position: relative;
+        color: #fff;
+      }
+
+      .panel-heading-bk-wrapper {
+        background: #000;
+        z-index: 1;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .panel-heading-bk-overlay {
+        background-color: rgba(0, 0, 0, .4);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        position: absolute;
+      }
+
+      .panel-heading-bk-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+
+      .fog {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+      }
+
+      .panel-title {
+        font-size: 40px;
+      }
+
+      .twitter_pfp {
+        margin-right: 30px;
+      }
+
+      .twitter_image {
+        max-height: 500px;
+      }
+
+      #template_card {
+        display: none;
+      }
+    </style>
+    <!-- OpenGraph -->
+    <meta property="og:url" content="https://2501codelab.github.io/student/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="zySandbox">
+    <meta property="og:description" content="an experience">
+    <!--<meta property="og:image" content="https://2501codelab.github.io/lost-and-found/assets/media/fb_bk.png">-->
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@LTCodeLab" />
+    <meta name="twitter:creator" content="@Zyplos" />
+    <!-- Mobile -->
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Favicons -->
+  </head>
+
+  <body>  <!-- -->
+<div class="jumbotron main_header">
+  <div class="container">
+    <h3>Take a picture and use <b>#lanetech</b> or <b>#quickstart</b> on Twitter to see your tweet on here!</h3>
+    <p>Consider following <b>@LTCodeLab</b> to get updates on the projects we run around Lane Tech!</p>
+  </div>
+</div>
+     <!-- -->
+    <div id="main"></div>
+    <!-- -->
+
+      <div class="panel panel-default" id="template_card">
+        <div class="panel-heading">
+          <div class="panel-heading-content">
+            <h3 class="panel-title"><img class="twitter_pfp" src="https://pbs.twimg.com/profile_images/896170491651670016/1iqcG2mq_200x200.jpg" width="150" alt="Twitter Icon"> <span class="twitter_name"></span> (@<span class="twitter_username"></span>)</h3></div>
+          <div class="panel-heading-bk-wrapper">
+            <div class="fog bk_img panel-heading-bk-img twitter_bk"></div>
+            <div class="panel-heading-bk-overlay"></div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <h4 class="twitter_text"></h4> <img src="http://lanetech.org/lt2017/assets/media/home/default_background.jpg" class="center-block twitter_image img-responsive"> </div>
+      </div>
+
+    <!-- -->
+    <footer>
+      <div class="container" style="color: #ffde00">
+        <div style="padding-top: 18px" class="pull-left"> <img src="../assets/media/codelab_logo_white.svg" style="height: 45px" /> </div>
+        <div style="padding-top: 20px" class="pull-right"> <img src="../assets/media/zyplos_logo_white.svg" style="height: 45px" /> </div>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script>
+      console.log('%c --------------------------------------', 'color: #ff3e3e;');
+      console.log('%c Hey!', 'color: #ff3e3e;');
+      console.log('%c ', 'color: #ff3e3e;');
+      console.log('%c You! Yeah you!', 'color: #ff3e3e;');
+      console.log('%c Snooping around the console!', 'color: #ff3e3e;');
+      console.log('%c Check out our Github at: https://github.com/2501CodeLab/', 'color: #ff3e3e;');
+      console.log('%c --------------------------------------', 'color: #ff3e3e;');
+    </script>
+    <script>
+      $(document).ready(function() {
+        var socket = io.connect("https://ltc-quickstart-livestream.herokuapp.com/");
+        socket.on('tweet', function(tweet) {
+          console.log("Got a tweet.", tweet);
+          //
+          var tweetCard = $("#template_card").clone().removeAttr("id");
+          tweetCard.find(".twitter_name").text(tweet.user.screen_name);
+          tweetCard.find(".twitter_username").text(tweet.user.name);
+          var tw_pfp = tweet.user.profile_image_url_https;
+          tweetCard.find(".twitter_pfp").attr("src", tw_pfp.replace("normal", "200x200"));
+          tweetCard.find(".twitter_bk").css("background-image", "url(" + tweet.user.profile_banner_url + ")");
+          //
+          tweetCard.find(".twitter_text").text(tweet.text);
+          tweetCard.find(".twitter_image").attr("src", tweet.entities.media[0].media_url_https);
+          //
+          $("#main").prepend(tweetCard);
+          //
+        });
+      });
+    </script>
+  </body>
+
+</html>
